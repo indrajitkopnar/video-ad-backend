@@ -1,0 +1,14 @@
+# k8s/backend/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: video-ad-backend
+spec:
+  selector:
+    app: video-ad-backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8081
+    nodePort: 32080   # 👈 Optional: fix to a known port (or omit to let Kubernetes assign one)
+  type: NodePort
